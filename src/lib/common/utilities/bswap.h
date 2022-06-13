@@ -78,10 +78,10 @@ namespace common_lib {
     }
 
 #define _DEFINE_EXTRA_BSWAP_FLOAT(from_type, to_type) \
-    static _BSWAP_CONSTEXPR inline to_type bswap(to_type value) { \
-        auto v = *reinterpret_cast<const from_type *>(&value); \
+    static inline to_type bswap(to_type value) { \
+        auto v = *reinterpret_cast<from_type *>(&value); \
         v = bswap(v); \
-        return *reinterpret_cast<const to_type *>(&v); \
+        return *reinterpret_cast<to_type *>(&v); \
     }
 
         _DEFINE_EXTRA_BSWAP_INT(uint16_t, int16_t)

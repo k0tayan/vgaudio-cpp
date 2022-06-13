@@ -63,9 +63,6 @@ namespace common_lib {
 
 namespace std {
 
-    template<typename T>
-    struct hash;
-
     template<>
     struct hash<::common_lib::utilities::Guid> {
         typedef ::common_lib::utilities::Guid argument_type;
@@ -75,5 +72,8 @@ namespace std {
             return o.getHashCode();
         }
     };
+
+    template<typename T>
+    struct hash;
 
 }

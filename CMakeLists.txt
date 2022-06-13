@@ -1,4 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
+
+# THIS HAS TO COME BEFORE THE PROJECT LINE
+set(CMAKE_C_COMPILER "gcc-11")
+set(CMAKE_CXX_COMPILER "g++-11")
+# THIS HAS TO COME BEFORE THE PROJECT LINE
+
 project(vgaudio)
 
 include(ExternalProject)

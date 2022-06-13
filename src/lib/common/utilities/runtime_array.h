@@ -46,7 +46,8 @@ namespace common_lib {
         template<typename... Ts>
         _CXX17_ATTR_NODISCARD auto make_array_static_with(Ts &&... ts)
         -> narray_ptr<std::common_type_t<Ts...>, sizeof...(ts)> {
-            auto arr = new std::array<std::common_type_t<Ts...>, sizeof...(ts)>{std::forward<Ts>(ts)...};
+            // auto arr = new std::array<std::common_type_t<Ts...>, sizeof...(ts)>{std::forward<Ts>(ts)...};
+            auto arr = new std::array<std::common_type_t<Ts...>, sizeof...(ts)>{static_cast<double>(ts)...};
             return std::shared_ptr<typename std::remove_reference<decltype(*arr)>::type>(arr);
         }
 
